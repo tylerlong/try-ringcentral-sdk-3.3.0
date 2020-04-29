@@ -1,0 +1,15 @@
+{
+  "license": "MIT",
+  "scripts": {
+    "test": "node -r dotenv-override-true/config index.js"
+  },
+  "dependencies": {
+    "ringcentral": "^3.3.0",
+    "timeout-as-promise": "^1.0.0"
+  },
+  "devDependencies": {
+    "dotenv-override-true": "^6.2.0",
+    "standard": "^14.3.3",
+    "yarn-upgrade-all": "^0.5.2"
+  }
+}
