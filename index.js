@@ -34,9 +34,9 @@ var rc = new SDK({
 
   // restore the old token
   rc.platform().auth().setData(oldToken);
-  const tokenRestored = await rc.platform().auth().data();
+  let tokenRestored = await rc.platform().auth().data();
   console.log('token restored: ',  tokenRestored);
-  console.log('token restore is identical to old token: ', oldToken.access_token === tokenRestored.access_token)
+  console.log('token restored is identical to old token: ', oldToken.access_token === tokenRestored.access_token)
 
   await delay(3000);
 
@@ -50,6 +50,25 @@ var rc = new SDK({
   // second API call
   r = await rc.platform().get('/restapi/v1.0/account/~/extension/~')
   console.log('second api call', r.json().id)
+
+
+  // restore the old token
+  rc.platform().auth().setData(oldToken);
+  tokenRestored = await rc.platform().auth().data();
+  console.log('token restored: ',  tokenRestored);
+  console.log('token restored is identical to old token: ', oldToken.access_token === tokenRestored.access_token)
+
+
+  // refresh it again
+  await rc.platform().refresh();
+  const newToken3 = await rc.platform().auth().data();
+  console.log('new token 3: ',  newToken3);
+
+  await delay(3000);
+
+  // third API call
+  r = await rc.platform().get('/restapi/v1.0/account/~/extension/~')
+  console.log('third api call', r.json().id)
 
   await rc.platform().logout();
 })()
