@@ -34,6 +34,9 @@ var rc = new SDK({
 
   // restore the old token
   rc.platform().auth().setData(oldToken);
+  const tokenRestored = await rc.platform().auth().data();
+  console.log('token restored: ',  tokenRestored);
+  console.log('token restore is identical to old token: ', oldToken.access_token === tokenRestored.access_token)
 
   await delay(3000);
 

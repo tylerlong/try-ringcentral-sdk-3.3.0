@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "dotenv-override-true": "^6.2.0",
-    "standard": "^14.3.3",
-    "yarn-upgrade-all": "^0.5.2"
+    "standard": "^14.3.4",
+    "yarn-upgrade-all": "^0.5.4"
   }
 }
