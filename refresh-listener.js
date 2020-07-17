@@ -18,6 +18,7 @@ var rc = new SDK({
   const platform = rc.platform();
   platform.on(platform.events.refreshSuccess, () => {
     console.log('refresh success, I need to save new token to database');
+    // todo: save new token to database
   });
 
   await rc.platform().refresh();
