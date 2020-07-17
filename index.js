@@ -20,8 +20,8 @@ var rc = new SDK({
   await delay(3000);
 
   // first API call
-  let r = await rc.platform().get('/restapi/v1.0/account/~/extension/~')
-  console.log('first api call', r.json().id)
+  const r1 = await rc.platform().get('/restapi/v1.0/account/~/extension/~')
+  console.log('first api call', r1.json().id)
 
   await delay(3000);
 
@@ -48,8 +48,8 @@ var rc = new SDK({
   await delay(3000);
 
   // second API call
-  r = await rc.platform().get('/restapi/v1.0/account/~/extension/~')
-  console.log('second api call', r.json().id)
+  const r2 = await rc.platform().get('/restapi/v1.0/account/~/extension/~')
+  console.log('second api call', r2.json().id)
 
 
   // restore the old token
@@ -67,8 +67,11 @@ var rc = new SDK({
   await delay(3000);
 
   // third API call
-  r = await rc.platform().get('/restapi/v1.0/account/~/extension/~')
-  console.log('third api call', r.json().id)
+  const r3 = await rc.platform().get('/restapi/v1.0/account/~/extension/~')
+  console.log('third api call', r3.json().id)
+
+  console.log('newToken.accessToken === newToken2.accessToken', newToken.accessToken === newToken2.accessToken)
+  console.log('newToken.accessToken2 === newToken3.accessToken', newToken2.accessToken === newToken3.accessToken)
 
   await rc.platform().logout();
 })()
